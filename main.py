@@ -5,6 +5,7 @@ from watchdog.events import FileSystemEventHandler
 
 
 LED_PIN = 17
+SSD_PATH = '/media/ssd_drive'
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_PIN, GPIO.OUT)
 
@@ -18,7 +19,7 @@ class MyHandler(FileSystemEventHandler):
 
 
 observer = Observer()
-observer.schedule(MyHandler(), path='/path/to/your/ssd', recursive=False)
+observer.schedule(MyHandler(), path=SSD_PATH, recursive=False)
 observer.start()
 
 try:
